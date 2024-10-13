@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Unit Convertion</title>
+	<link rel="icon" type="image/x-icon" href="https://i.ibb.co/GpwHYW5/Icon.png">
+<style type="text/css">
+	body, html{
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		background-color: #18465D;
+	}
+	.header{
+		margin-left: 390px;
+		margin-top: 110px;
+	}
+	.img_header{
+		background-image: url("https://i.ibb.co/Yj4RCSP/Header.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding-top: 18%;
+		padding-left: 0px;
+		height: 15%;
+		width: 63.1%;
+		display:block;
+		position: relative;		
+	}
+	.img{
+		background-image: url("https://i.ibb.co/CJwQhYd/bg-img.png");
+		height: 100%;
+		background-position: center;
+		margin-top: -740px;
+		background-attachment: fixed;
+		background-size: 100% 100%;
+		z-index: -5;	
+	}
+	.navigation{
+		margin-left: 390px;
+		margin-top: 0px;
+	}
+	h5{
+		padding: 0%;
+		margin: 0%;
+		width: 62.9%;
+		height: 350px;
+		background-color: #79CE31;
+		opacity: 85%;
+		border: 1px solid rgb(29, 159, 42);
+	}
+	.weight{
+		margin-left: 10px;
+	}
+	.IU{
+		margin-left: 50px;
+	}
+	.ml{
+		margin-left: 50px;
+	}
+
+	#weight_kg{
+		margin-left: 20px;
+		height: 25px;
+		width: 90%;		
+	}
+	#weight_kg_label{
+		margin-left: 20px;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+	}
+	.ui{
+		margin-left: 20px;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		float: left;
+		padding: 2px;
+		padding-top: 5px;
+		font-size: medium;
+		border: 1px solid;	
+		height: 25px;
+		width: 90%;
+		margin-top: -10px;
+		background-color: white;
+	}
+	.ml{
+		margin-left: 20px;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		float: left;
+		padding: 2px;
+		padding-top: 5px;
+		font-size: medium;
+		border: 1px solid;	
+		height: 25px;
+		width: 90%;
+		margin-top: -10px;
+		background-color: white;
+	}
+	.ui_box{
+		margin-left: -15px;
+		height: 25px;
+		width: 90%;
+		margin-top: -5px;
+		position: relative;
+	}
+	#UI_label{
+		margin-left: 20px;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+	}
+	#ML{
+		margin-left: 20px;
+		height: 25px;
+		width: 90%;
+	}
+	#ML_Label{
+		margin-left: 20px;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+	}
+	#btn1{
+		margin-left: 20px;
+		height: 40px;
+		width: 91%;
+		text-align: center;
+		margin-top: 20px;;
+		font-size: medium;
+		font-weight: bold;
+		color: #18465D;
+		border-radius: 10px;
+		border: 1px solid;
+	}
+	#btn1:hover{
+		box-shadow: 2px 2px 2px;
+		color: black;
+	}
+	#btn2{
+		margin-left: 10px;
+		height: 40px;
+		width: 96%;
+		text-align: center;
+		margin-top: 20px;;
+		border-radius: 5px;
+		background-color: white;
+		border: none;
+	}
+	form{
+		margin-top: 50px;
+	}
+	
+</style>
+
+</head>
+<body>
+	
+	<div class="header">
+		<!--<span class="Dosing">Dosing Accuracy</span>-->
+		<div class="img_header">
+
+			</div>
+	</div>
+	
+	<div class="navigation">
+		
+		<h5>
+			<form action="input">
+			<label for="kg" id="weight_kg_label">Patient Weight (KG)</label><br/><br/>
+			<input type="number" id="weight_kg" name="kg" placeholder="Enter Number Of KG" required><br/><br/>
+			<label for="ui" id="UI_label">International Units(IU) </label><br/><br/>
+			<label for="ui" id="UI" class="ui">0</label><br/><br/><br/>
+			<label for="ml" id="ML_Label">Injection Volume(ML) </label><br/><br/>
+			<label for="ui" id="ML" class="ml">0</label><br/><br/>
+			<button type="button" id="btn1">Submit</button><br/><br/><br/><br/>
+			<!--<label for="ml" id="ML_Label">Colour code syringe </label><br/>
+			<button type="button" id="btn2"></button>-->
+		</form>
+		</h5>
+	</div>
+	<div class="img">
+
+	</div>
+	<script>
+
+		const btn1 = document.getElementById('btn1');
+		const text1 = document.getElementById('weight_kg');
+		const text2 = document.getElementById('UI');
+		const text3 = document.getElementById('ML');
+		const btnC = document.getElementById('btn2');
+		
+		let resultUI;
+		// this variable is from Weight 32 to 37
+		let result32 = 32;
+		let result33 = 33;
+		let result34 = 34;
+		let result35 = 35;
+		let result36 = 36;
+		let result37 = 37;
+		
+
+		//this variable is from Weight 38 to 42
+		let result38 = 38;
+		let result39 = 39;
+		let result40 = 40;
+		let result41 = 41;
+		let result42 = 42;
+
+		//this variable is from Weight 43 to 48
+		let result43 = 43;
+		let result44 = 44;
+		let result45 = 45;
+		let result46 = 46;
+		let result47 = 47;
+		let result48 = 48;
+
+		//this variable is from Weight 49 to 54
+		let result49 = 49;
+		let result50 = 50;
+		let result51 = 51;
+		let result52 = 52;
+		let result53 = 53;
+		let result54 = 54;
+
+		//this variable is from Weight 55 to 59
+		let result55 = 55;
+		let result56 = 56;
+		let result57 = 57;
+		let result58 = 58;
+		let result59 = 59;
+
+		//this variable is from Weight 60 to 65
+		let result60 = 60;
+		let result61 = 61;
+		let result62 = 62;
+		let result63 = 63;
+		let result64 = 64;
+		let result65 = 65;
+
+		//this variable is from Weight 66 to 71
+		let result66 = 66;
+		let result67 = 67;
+		let result68 = 68;
+		let result69 = 69;
+		let result70 = 70;
+		let result71 = 71;
+
+		//this variable is from Weight 72 to 77
+		let result72 = 72;
+		let result73 = 73;
+		let result74 = 74;
+		let result75 = 75;
+		let result76 = 76;
+		let result77 = 77;
+
+		//this variable is from Weight 78 to 82
+		let result78 = 78;
+		let result79 = 79;
+		let result80 = 80;
+		let result81 = 81;
+		let result82 = 82;
+
+		//this variable is from Weight 83 to 88
+		let result83 = 83;
+		let result84 = 84;
+		let result85 = 85;
+		let result86 = 86;
+		let result87 = 87;
+		let result88 = 88;
+
+		//this variable is from Weight 89 to 94
+		let result89 = 89;
+		let result90 = 90;
+		let result91 = 91;
+		let result92 = 92;
+		let result93 = 93;
+		let result94 = 94;
+
+		//this variable is from Weight 95 to 99
+		let result95 = 95;
+		let result96 = 96;
+		let result97 = 97;
+		let result98 = 98;
+		let result99 = 99;
+
+		//this variable is from Weight 100 to 105
+		let reuslt100 = 100;
+		let reuslt101 = 101;
+		let reuslt102 = 102;
+		let reuslt103 = 103;
+		let reuslt104 = 104;
+		let reuslt105 = 105;
+
+		text1.addEventListener("keypress", function(event){
+
+			if(event.key === "Enter"){
+				event.preventDefault();
+				document.getElementById("btn1").click();
+			}
+		});
+
+		btn1.onclick = function(){
+
+			if(text1.value == result32 || text1.value == result33 || text1.value == result34 || text1.value == result35 || text1.value == result36 || text1.value == result37){
+				text2.innerHTML = '6,000';
+				text3.innerHTML = '0.30';
+				//document.getElementById("btn2").style.backgroundColor = "rgb(251, 94, 2)";
+			}
+			else if(text1.value == result38 || text1.value == result39 || text1.value == result40 || text1.value ==result41 || text1.value == result42){
+				text2.innerHTML = '7,000';
+				text3.innerHTML = '0.35';
+				//document.getElementById("btn2").style.backgroundColor = "rgb(251, 94, 2)";
+			}
+			else if(text1.value == result43 || text1.value == result44 || text1.value == result45 || text1.value == result46 || text1.value == result47 || text1.value == result48){
+				text2.innerHTML = '8,000';
+				text3.innerHTML = '0.40';
+				//document.getElementById("btn2").style.backgroundColor = "rgb(251, 94, 2)";
+			}
+			else if(text1.value == result49 || text1.value == result50 || text1.value == result51 || text1.value == result52 || text1.value == result53 || text1.value == result54){
+				text2.innerHTML = '9,000';
+				text3.innerHTML = '0.45';
+				//document.getElementById("btn2").style.backgroundColor = "rgb(241, 1, 1)";
+			}
+			else if(text1.value == result55 || text1.value == result56 || text1.value == result57 || text1.value == result58 || text1.value == result59){
+				text2.innerHTML = '10,000';
+				text3.innerHTML = '0.50';
+				//document.getElementById("btn2").style.backgroundColor = "rgb(241, 1, 1)";
+			}
+			else if(text1.value == result60 || text1.value == result61 || text1.value == result62 || text1.value == result63 || text1.value == result64 || text1.value == result65){
+				text2.innerHTML = '11,000';
+				text3.innerHTML = '0.55';
+				//document.getElementById("btn2").style.backgroundColor = "rgb(123, 66, 42)";
+			}
+			else if(text1.value == result66 || text1.value == result67 || text1.value == result68 || text1.value == result68 || text1.value == result69 || text1.value == result70 || text1.value == result71){
+				text2.innerHTML = '12,000';
+				text3.innerHTML = '0.60';
+				//document.getElementById("btn2").style.backgroundColor = "rgb(123, 66, 42)";
+			}
+			else if(text1.value == result72 || text1.value == result73 || text1.value == result74 || text1.value == result75 || text1.value == result76 || text1.value == result77){
+				text2.innerHTML = '13,000';
+				text3.innerHTML = '0.65';
+				//document.getElementById("btn2").style.backgroundColor = "rgb(250, 202, 1)";
+			}
+			else if(text1.value == result78 || text1.value == result79 || text1.value == result80 || text1.value == result81 || text1.value == result82){
+				text2.innerHTML = '14,000';
+				text3.innerHTML = '0.70';
+				//document.getElementById("btn2").style.backgroundColor = "rgb(250, 202, 1)";
+			}
+			else if(text1.value == result83 || text1.value == result84 || text1.value == result85 || text1.value == result86 || text1.value == result87 || text1.value == result88){
+				text2.innerHTML = '15,000';
+				text3.innerHTML = '0.75';
+				//document.getElementById("btn2").style.backgroundColor = "rgb(0, 136, 18)";
+			}
+			else if(text1.value == result89 || text1.value == result90 || text1.value == result91 || text1.value == result92 || text1.value == result93 || text1.value == result94){
+				text2.innerHTML = '16,000';
+				text3.innerHTML = '0.80';
+				//document.getElementById("btn2").style.backgroundColor = "rgb(0, 136, 18)";
+			}
+			else if(text1.value == result95 || text1.value == result96 || text1.value == result97 || text1.value == result98 || text1.value == result99){
+				text2.innerHTML = '17,000';
+				text3.innerHTML = '0.85';
+				//document.getElementById("btn2").style.backgroundColor = "rgb(0, 26, 163)";
+			}
+			else if(text1.value == reuslt100 || text1.value == reuslt101 || text1.value == reuslt102 || text1.value == reuslt103 || text1.value == reuslt104 || text1.value == reuslt105){
+				text2.innerHTML = '18,000';
+				text3.innerHTML = '0.90';
+				//document.getElementById("btn2").style.backgroundColor = "rgb(0, 26, 163)";
+			}
+			else{
+				text2.innerHTML = '0';
+				text3.innerHTML = '0';
+			}
+			
+		}
+		
+	</script>
+</body>
+</html>
